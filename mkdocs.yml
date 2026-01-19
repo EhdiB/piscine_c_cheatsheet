@@ -1,0 +1,18 @@
+site_name: 42 Piscine Cheatsheet
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - admonition
+  - attr_list
+nav:
+  - Home: index.md
