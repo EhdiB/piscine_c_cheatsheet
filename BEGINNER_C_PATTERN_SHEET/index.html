@@ -1,0 +1,1557 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Beginner C Pattern Sheet (Piscine Edition) - 42 Piscine Cheatsheet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#beginner-c-pattern-sheet-piscine-edition" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="42 Piscine Cheatsheet" class="md-header__button md-logo" aria-label="42 Piscine Cheatsheet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            42 Piscine Cheatsheet
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Beginner C Pattern Sheet (Piscine Edition)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="42 Piscine Cheatsheet" class="md-nav__button md-logo" aria-label="42 Piscine Cheatsheet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    42 Piscine Cheatsheet
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="beginner-c-pattern-sheet-piscine-edition">Beginner C Pattern Sheet (Piscine Edition)<a class="headerlink" href="#beginner-c-pattern-sheet-piscine-edition" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-what-is-this-document">📖 Introduction: What Is This Document?<a class="headerlink" href="#introduction-what-is-this-document" title="Permanent link">&para;</a></h2>
+<h3 id="who-is-this-for">Who Is This For?<a class="headerlink" href="#who-is-this-for" title="Permanent link">&para;</a></h3>
+<p>This guide is designed for <strong>absolute beginners</strong> starting their first 2 weeks of the <strong>42 Piscine</strong> (a 26-day intensive coding bootcamp). If you:
+- Have never written C code before
+- Are learning programming for the first time
+- Need help understanding basic C concepts
+- Want to see patterns used in 42 exercises</p>
+<p><strong>Then this document is for you!</strong></p>
+<h3 id="what-this-document-covers">What This Document Covers<a class="headerlink" href="#what-this-document-covers" title="Permanent link">&para;</a></h3>
+<p>This is a <strong>practical, pattern-based learning guide</strong> that teaches you:</p>
+<ol>
+<li><strong>Basic C syntax</strong> (variables, loops, conditionals, functions)</li>
+<li><strong>How to structure C files</strong> for 42 exercises</li>
+<li><strong>String manipulation</strong> (the most common task in early exercises)</li>
+<li><strong>Pointers</strong> (explained step-by-step with visual examples)</li>
+<li><strong>Common code patterns</strong> you'll reuse constantly</li>
+<li><strong>How to avoid beginner mistakes</strong></li>
+</ol>
+<p><strong>Everything is based on actual exercises</strong> from the first 2 weeks of piscine (C00, C01, C02, C03 modules).</p>
+<h3 id="what-this-document-does-not-cover">What This Document Does NOT Cover<a class="headerlink" href="#what-this-document-does-not-cover" title="Permanent link">&para;</a></h3>
+<p>This is <strong>not</strong> a complete C programming textbook. It does not cover:
+- Advanced topics (linked lists, file I/O, system calls beyond <code>write()</code>)
+- Memory allocation (<code>malloc</code>/<code>free</code>) - not needed in first 2 weeks
+- Header files (<code>.h</code> files) - covered briefly at the end as "next steps"
+- Complex data structures
+- Full C language reference</p>
+<p><strong>Focus:</strong> Practical patterns for solving 42 piscine exercises in your first 2 weeks.</p>
+<h3 id="how-to-use-this-document">How to Use This Document<a class="headerlink" href="#how-to-use-this-document" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Read sections in order</strong> - concepts build on each other</li>
+<li><strong>Keep it open while coding</strong> - use as a quick reference</li>
+<li><strong>Study the examples</strong> - they're from real exercises</li>
+<li><strong>Practice the patterns</strong> - try modifying the code examples</li>
+<li><strong>Check the glossary</strong> - if you see an unfamiliar term, look it up</li>
+</ol>
+<h3 id="about-the-examples">About the Examples<a class="headerlink" href="#about-the-examples" title="Permanent link">&para;</a></h3>
+<p>All code examples in this document come from analyzing actual exercise solutions from a 42 piscine repository (a collection of exercise files). The patterns shown are what you'll actually use to solve similar problems.</p>
+<p><strong>Note:</strong> Some examples may contain bugs - we'll point these out so you can learn from mistakes!</p>
+<hr />
+<h2 id="quick-lexicon-glossary">📚 Quick Lexicon (Glossary)<a class="headerlink" href="#quick-lexicon-glossary" title="Permanent link">&para;</a></h2>
+<p><strong>Before you start, here are key terms you'll encounter:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>42 / 42 Piscine</strong></td>
+<td>A 26-day intensive coding bootcamp where you learn C programming through daily exercises</td>
+</tr>
+<tr>
+<td><strong>Repository (repo)</strong></td>
+<td>A folder containing code files - in this case, exercise solutions organized by module (C00, C01, etc.)</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>A group of related exercises (e.g., C00 = basic output, C01 = pointers introduction)</td>
+</tr>
+<tr>
+<td><strong>Exercise</strong></td>
+<td>A single programming task (e.g., "write a function that prints a character")</td>
+</tr>
+<tr>
+<td><strong>Function</strong></td>
+<td>A reusable block of code that performs a specific task</td>
+</tr>
+<tr>
+<td><strong>Variable</strong></td>
+<td>A named storage location that holds a value (like a labeled box)</td>
+</tr>
+<tr>
+<td><strong>Pointer</strong></td>
+<td>A variable that stores a memory address (like a street address)</td>
+</tr>
+<tr>
+<td><strong>String</strong></td>
+<td>A sequence of characters (text) in C, always ending with <code>'\0'</code></td>
+</tr>
+<tr>
+<td><strong>Array</strong></td>
+<td>A collection of items stored in consecutive memory locations</td>
+</tr>
+<tr>
+<td><strong>NUL terminator</strong></td>
+<td>The <code>'\0'</code> character that marks the end of a string</td>
+</tr>
+<tr>
+<td><strong>Dereference</strong></td>
+<td>Using <code>*</code> to get the value at a memory address</td>
+</tr>
+<tr>
+<td><strong>Address-of</strong></td>
+<td>Using <code>&amp;</code> to get the memory address of a variable</td>
+</tr>
+<tr>
+<td><strong>Compile</strong></td>
+<td>Converting your C code into an executable program</td>
+</tr>
+<tr>
+<td><strong>Syntax</strong></td>
+<td>The rules for writing valid C code (like grammar for a language)</td>
+</tr>
+<tr>
+<td><strong>Header file</strong></td>
+<td>A file (<code>.h</code>) that declares functions for use in other files</td>
+</tr>
+<tr>
+<td><strong>Include</strong></td>
+<td>Adding code from another file using <code>#include</code></td>
+</tr>
+<tr>
+<td><strong>Function signature</strong></td>
+<td>The declaration showing return type, name, and parameters</td>
+</tr>
+<tr>
+<td><strong>Parameter</strong></td>
+<td>A value passed to a function</td>
+</tr>
+<tr>
+<td><strong>Return value</strong></td>
+<td>The result a function gives back</td>
+</tr>
+<tr>
+<td><strong>Loop</strong></td>
+<td>Code that repeats until a condition is met</td>
+</tr>
+<tr>
+<td><strong>Conditional</strong></td>
+<td>Code that runs only if a condition is true (<code>if</code>/<code>else</code>)</td>
+</tr>
+<tr>
+<td><strong>Index</strong></td>
+<td>A number used to access a specific position in an array/string</td>
+</tr>
+<tr>
+<td><strong>Buffer</strong></td>
+<td>A temporary storage area in memory</td>
+</tr>
+<tr>
+<td><strong>Buffer overflow</strong></td>
+<td>Writing past the end of allocated memory (dangerous bug)</td>
+</tr>
+<tr>
+<td><strong>NULL pointer</strong></td>
+<td>A pointer that doesn't point to anything (value: <code>NULL</code>)</td>
+</tr>
+<tr>
+<td><strong>Undefined behavior</strong></td>
+<td>Code that might work sometimes but isn't guaranteed (dangerous)</td>
+</tr>
+<tr>
+<td><strong>ASCII</strong></td>
+<td>A system where each character has a number (e.g., 'A' = 65)</td>
+</tr>
+<tr>
+<td><strong>File descriptor</strong></td>
+<td>A number representing an open file/stream (1 = screen output)</td>
+</tr>
+<tr>
+<td><strong>Stdout</strong></td>
+<td>Standard output - where your program prints (usually the screen)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Don't worry if you don't understand all terms yet - they'll be explained as you read!</strong></p>
+<hr />
+<h2 id="a-file-anatomy">A. File Anatomy<a class="headerlink" href="#a-file-anatomy" title="Permanent link">&para;</a></h2>
+<h3 id="what-goes-in-a-c-file">What Goes in a <code>.c</code> File<a class="headerlink" href="#what-goes-in-a-c-file" title="Permanent link">&para;</a></h3>
+<p><strong>What is a <code>.c</code> file?</strong> A <code>.c</code> file is a <strong>source code file</strong> containing C programming code. It's the file you write your program in, which gets compiled (converted) into an executable program.</p>
+<p>Every <code>.c</code> file in this repository (collection of exercise files) follows this structure:</p>
+<pre><code class="language-c">/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   filename.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: author &lt;email@42.fr&gt;                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: YYYY/MM/DD HH:MM:SS by author            #+#    #+#             */
+/*   Updated: YYYY/MM/DD HH:MM:SS by author            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include &lt;unistd.h&gt;
+
+void    ft_function_name(parameters)
+{
+    // Your code here
+}
+</code></pre>
+<p><strong>Key points:</strong>
+- <strong>Header block</strong>: Required 42-style header (author, dates, etc.) - a comment block at the top of every file
+- <strong>Includes</strong>: At the top, after header - <code>#include</code> statements that add library functions
+- <strong>Function</strong>: One main function matching the filename - the code that does the work
+- <strong>Style</strong>: Tabs (not spaces), braces on new lines - formatting rules required by 42</p>
+<p><strong>Minimal example:</strong></p>
+<pre><code class="language-c">#include &lt;unistd.h&gt;
+
+void    ft_hello(void)
+{
+    write(1, &quot;Hello&quot;, 5);
+}
+</code></pre>
+<hr />
+<h2 id="b-importing-includes">B. Importing / Includes<a class="headerlink" href="#b-importing-includes" title="Permanent link">&para;</a></h2>
+<h3 id="what-an-include-is">What an Include Is<a class="headerlink" href="#what-an-include-is" title="Permanent link">&para;</a></h3>
+<p><strong>What is <code>#include</code>?</strong> <code>#include</code> is a <strong>preprocessor directive</strong> (special instruction) that copies code from another file into yours before compilation. Think of it like importing a toolbox - you're adding tools (functions) you can use.</p>
+<pre><code class="language-c">#include &lt;unistd.h&gt;  // Gives you write() function
+</code></pre>
+<p><strong>What is a library?</strong> A library is a collection of pre-written functions you can use. <code>&lt;unistd.h&gt;</code> is a standard library that provides the <code>write()</code> function for output.</p>
+<h3 id="headers-observed-in-this-repository">Headers Observed in This Repository<a class="headerlink" href="#headers-observed-in-this-repository" title="Permanent link">&para;</a></h3>
+<p><strong>What is a header?</strong> A header file (<code>.h</code> file) contains declarations of functions. When you <code>#include</code> it, you're telling your program "these functions exist and you can use them."</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Purpose</th>
+<th>Evidence</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;unistd.h&gt;</code></td>
+<td>Provides <code>write()</code> function</td>
+<td>Used in <strong>all</strong> files</td>
+<td><strong>Always</strong> - for output</td>
+</tr>
+<tr>
+<td><code>&lt;stdio.h&gt;</code></td>
+<td>Provides <code>printf()</code>, etc.</td>
+<td>Only in <strong>commented test code</strong></td>
+<td><strong>Likely forbidden</strong> in submissions</td>
+</tr>
+<tr>
+<td><code>&lt;string.h&gt;</code></td>
+<td>String functions</td>
+<td>Found once (<code>c_03/ex04/ft_strstr.c:14</code>)</td>
+<td><strong>Likely mistake</strong> - forbidden</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of thumb:</strong> Use <code>&lt;unistd.h&gt;</code> for <code>write()</code>. Avoid <code>&lt;stdio.h&gt;</code> (use <code>write()</code> instead of <code>printf()</code>).</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">#include &lt;unistd.h&gt;  // Good - needed for write()
+
+void    ft_example(void)
+{
+    write(1, &quot;Hello&quot;, 5);  // write() comes from unistd.h
+}
+</code></pre>
+<hr />
+<h2 id="c-variables-types-beginner-friendly">C. Variables &amp; Types (Beginner-Friendly)<a class="headerlink" href="#c-variables-types-beginner-friendly" title="Permanent link">&para;</a></h2>
+<h3 id="basic-types-youll-use">Basic Types You'll Use<a class="headerlink" href="#basic-types-youll-use" title="Permanent link">&para;</a></h3>
+<p><strong>What is a type?</strong> A <strong>type</strong> tells the computer what kind of data a variable can hold and how much memory it needs.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Stores</th>
+<th>Example</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td>Whole numbers (integers)</td>
+<td><code>42</code>, <code>-5</code>, <code>0</code></td>
+<td>Usually 4 bytes</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>Single character</td>
+<td><code>'a'</code>, <code>'0'</code>, <code>'\0'</code></td>
+<td>1 byte</td>
+</tr>
+<tr>
+<td><code>char*</code></td>
+<td>String (pointer to characters)</td>
+<td><code>"Hello"</code>, <code>str</code></td>
+<td>8 bytes (pointer)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What is a byte?</strong> A byte is a unit of memory. One byte can store one character. Larger types use more bytes.</p>
+<h3 id="declaration-initialization">Declaration + Initialization<a class="headerlink" href="#declaration-initialization" title="Permanent link">&para;</a></h3>
+<p><strong>What is declaration?</strong> <strong>Declaration</strong> means telling the computer "I want a variable with this name and type."<br />
+<strong>What is initialization?</strong> <strong>Initialization</strong> means giving a variable its first value.</p>
+<p><strong>Declare then assign:</strong></p>
+<pre><code class="language-c">int age;
+age = 25;
+</code></pre>
+<p><strong>Declare and initialize:</strong></p>
+<pre><code class="language-c">int age = 25;
+char    c = 'a';
+char    *str = &quot;Hello&quot;;
+</code></pre>
+<p><strong>Multiple variables:</strong></p>
+<pre><code class="language-c">int i;
+int j;
+int k;
+
+// Or:
+int i, j, k;
+</code></pre>
+<h3 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h3>
+<p><strong>1. Uninitialized variable:</strong></p>
+<pre><code class="language-c">int i;  // Wrong: Value is garbage
+while (i &lt; 10)  // Undefined behavior!
+
+// Fix:
+int i = 0;
+while (i &lt; 10)
+</code></pre>
+<p><strong>2. Wrong type:</strong></p>
+<pre><code class="language-c">char    c = 65;  // Works, but confusing
+char    c = 'A';  // Better - same value (65)
+</code></pre>
+<p><strong>3. Mixing signed/unsigned:</strong></p>
+<pre><code class="language-c">int     len = -1;
+unsigned int    size = 10;
+if (len &lt; size)  // -1 becomes huge unsigned number!
+
+// Fix: Use consistent types
+int len = -1;
+int size = 10;
+</code></pre>
+<hr />
+<h2 id="d-loops-patterns-youll-use-constantly">D. Loops (Patterns You'll Use Constantly)<a class="headerlink" href="#d-loops-patterns-youll-use-constantly" title="Permanent link">&para;</a></h2>
+<h3 id="while-loop-template-especially-for-strings">while Loop Template (Especially for Strings)<a class="headerlink" href="#while-loop-template-especially-for-strings" title="Permanent link">&para;</a></h3>
+<p><strong>What is a loop?</strong> A <strong>loop</strong> repeats code multiple times until a condition becomes false.</p>
+<p><strong>Most common pattern in the repository:</strong></p>
+<pre><code class="language-c">int i;
+
+i = 0;
+while (str[i] != '\0')
+{
+    // Do something with str[i]
+    i++;
+}
+</code></pre>
+<p><strong>Why this works:</strong> Strings end with <code>'\0'</code>. Loop until you hit it.</p>
+<p><strong>Example (from the repository):</strong></p>
+<pre><code class="language-c">void    ft_putstr(char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i] != '\0')  // Loop until end of string
+    {
+        write(1, &amp;str[i], 1);
+        i++;  // Move to next character
+    }
+}
+</code></pre>
+<h3 id="for-loop-template-if-used">for Loop Template (If Used)<a class="headerlink" href="#for-loop-template-if-used" title="Permanent link">&para;</a></h3>
+<p><strong>Less common in the repository, but useful:</strong></p>
+<pre><code class="language-c">for (initialization; condition; increment)
+{
+    // Body
+}
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">int i;
+
+for (i = 0; i &lt; 10; i++)
+{
+    write(1, &amp;i, 1);
+}
+</code></pre>
+<p><strong>Equivalent while:</strong></p>
+<pre><code class="language-c">int i;
+
+i = 0;
+while (i &lt; 10)
+{
+    write(1, &amp;i, 1);
+    i++;
+}
+</code></pre>
+<p><strong>Repository preference:</strong> <code>while</code> loops are more common in these exercises.</p>
+<h3 id="common-loop-mistakes">Common Loop Mistakes<a class="headerlink" href="#common-loop-mistakes" title="Permanent link">&para;</a></h3>
+<p><strong>1. Off-by-one:</strong></p>
+<pre><code class="language-c">// Wrong: Goes one too far
+int i = 0;
+while (i &lt;= size)  // Accesses arr[size] (out of bounds!)
+{
+    arr[i] = 0;
+    i++;
+}
+
+// Correct:
+int i = 0;
+while (i &lt; size)  // Stops at size-1
+{
+    arr[i] = 0;
+    i++;
+}
+</code></pre>
+<p><strong>2. Infinite loop (forgetting increment):</strong></p>
+<pre><code class="language-c">// Wrong: i never changes!
+int i = 0;
+while (i &lt; 10)
+{
+    write(1, &quot;loop&quot;, 4);
+    // Forgot i++!
+}
+
+// Correct:
+int i = 0;
+while (i &lt; 10)
+{
+    write(1, &quot;loop&quot;, 4);
+    i++;  // Don't forget!
+}
+</code></pre>
+<hr />
+<h2 id="e-conditionals">E. Conditionals<a class="headerlink" href="#e-conditionals" title="Permanent link">&para;</a></h2>
+<h3 id="if-else-basics">if / else Basics<a class="headerlink" href="#if-else-basics" title="Permanent link">&para;</a></h3>
+<pre><code class="language-c">if (condition)
+{
+    // Do this if true
+}
+else
+{
+    // Do this if false
+}
+</code></pre>
+<p><strong>Common patterns in the repository:</strong></p>
+<p><strong>1. Simple check:</strong></p>
+<pre><code class="language-c">if (n &lt; 0)
+    write(1, &quot;N&quot;, 1);
+else
+    write(1, &quot;P&quot;, 1);
+</code></pre>
+<p><strong>2. Multiple conditions:</strong></p>
+<pre><code class="language-c">if (c &gt;= 'a' &amp;&amp; c &lt;= 'z')  // AND
+    return (1);
+if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z')  // OR (separate if)
+    return (1);
+return (0);
+</code></pre>
+<p><strong>3. Nested if:</strong></p>
+<pre><code class="language-c">if (nb == -2147483648)
+{
+    write(1, &quot;-2147483648&quot;, 11);
+}
+else if (nb &lt; 0)
+{
+    write(1, &quot;-&quot;, 1);
+    nb = -nb;
+}
+</code></pre>
+<h3 id="common-comparison-patterns">Common Comparison Patterns<a class="headerlink" href="#common-comparison-patterns" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Equal</td>
+<td><code>if (x == 5)</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Not equal</td>
+<td><code>if (str[i] != '\0')</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>if (i &lt; size)</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less or equal</td>
+<td><code>if (c &lt;= 'z')</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>if (x &gt; 0)</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater or equal</td>
+<td><code>if (c &gt;= 'a')</code></td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>AND</td>
+<td><code>if (x &gt; 0 &amp;&amp; x &lt; 10)</code></td>
+</tr>
+<tr>
+<td><code>\|\|</code></td>
+<td>OR</td>
+<td><code>if (c == 'a' \|\| c == 'A')</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Character range checks (very common):</strong></p>
+<pre><code class="language-c">if (c &gt;= 'a' &amp;&amp; c &lt;= 'z')  // Lowercase letter
+if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z')  // Uppercase letter
+if (c &gt;= '0' &amp;&amp; c &lt;= '9')  // Digit
+</code></pre>
+<hr />
+<h2 id="f-functions">F. Functions<a class="headerlink" href="#f-functions" title="Permanent link">&para;</a></h2>
+<h3 id="function-signature-basics">Function Signature Basics<a class="headerlink" href="#function-signature-basics" title="Permanent link">&para;</a></h3>
+<p><strong>What is a function signature?</strong> A <strong>function signature</strong> is the declaration that shows:
+- <strong>Return type</strong>: What kind of value the function gives back (or <code>void</code> if nothing)
+- <strong>Function name</strong>: What you call it
+- <strong>Parameters</strong>: What values you pass to it</p>
+<pre><code class="language-c">return_type function_name(parameter_type parameter_name)
+{
+    // Body - the code that does the work
+    return (value);  // If return_type is not void
+}
+</code></pre>
+<p><strong>What is a parameter?</strong> A <strong>parameter</strong> (also called "argument") is a value you pass to a function when you call it.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">int ft_strlen(char *str)  // Returns int, takes char* parameter
+{
+    int i;
+
+    i = 0;
+    while (str[i] != '\0')
+        i++;
+    return (i);  // Return the length
+}
+</code></pre>
+<p><strong>Return types:</strong>
+- <code>void</code> = returns nothing
+- <code>int</code> = returns a number
+- <code>char*</code> = returns a pointer (often the string you modified)</p>
+<h3 id="passing-by-value-copy">Passing by Value (Copy)<a class="headerlink" href="#passing-by-value-copy" title="Permanent link">&para;</a></h3>
+<p><strong>By value (copy):</strong></p>
+<pre><code class="language-c">void    ft_add_one(int n)
+{
+    n = n + 1;  // Only changes local copy
+}
+
+int main(void)
+{
+    int x = 5;
+    ft_add_one(x);
+    // x is still 5! (not changed)
+}
+</code></pre>
+<p><strong>Why this happens:</strong> Function gets a <strong>copy</strong> of the value. Changes don't affect original.</p>
+<h3 id="write-small-helpers-pattern">Write Small Helpers Pattern<a class="headerlink" href="#write-small-helpers-pattern" title="Permanent link">&para;</a></h3>
+<p><strong>Observed in the repository:</strong> Functions call other helper functions.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-c">void    ft_putchar(char c)  // Helper
+{
+    write(1, &amp;c, 1);
+}
+
+void    ft_putnbr(int nb)  // Uses helper
+{
+    if (nb &gt;= 10)
+    {
+        ft_putnbr(nb / 10);
+        ft_putchar((nb % 10) + '0');  // Uses helper
+    }
+    else
+        ft_putchar(nb + '0');
+}
+</code></pre>
+<p><strong>Why:</strong> Break problems into smaller pieces. Reuse code.</p>
+<hr />
+<h2 id="g-strings-nul-terminated">G. Strings (NUL-Terminated)<a class="headerlink" href="#g-strings-nul-terminated" title="Permanent link">&para;</a></h2>
+<h3 id="what-a-c-string-is">What a C String Is<a class="headerlink" href="#what-a-c-string-is" title="Permanent link">&para;</a></h3>
+<p><strong>What is a string?</strong> A <strong>string</strong> is text - a sequence of characters. In C, a string is an <strong>array of characters ending with <code>'\0'</code></strong> (NUL terminator).</p>
+<p><strong>What is an array?</strong> An <strong>array</strong> is a collection of items stored in consecutive memory locations. You access items by their position (index).</p>
+<pre><code class="language-c">char    str[] = &quot;Hello&quot;;
+// Actually: ['H', 'e', 'l', 'l', 'o', '\0']
+//           [ 0,   1,   2,   3,   4,   5  ]
+</code></pre>
+<p><strong>Key point:</strong> The <code>'\0'</code> (NUL terminator) marks the end of the string. It's not printed, but must be there. Without it, the computer doesn't know where the string ends!</p>
+<h3 id="how-to-traverse-safely">How to Traverse Safely<a class="headerlink" href="#how-to-traverse-safely" title="Permanent link">&para;</a></h3>
+<p><strong>What is traversing?</strong> <strong>Traversing</strong> means going through each element of a string or array, one by one.</p>
+<p><strong>Standard pattern (from the repository):</strong></p>
+<pre><code class="language-c">int i;
+
+i = 0;
+while (str[i] != '\0')  // Stop at terminator
+{
+    // Process str[i]
+    i++;
+}
+</code></pre>
+<p><strong>Why safe:</strong> Stops at <code>'\0'</code>, won't go past end.</p>
+<h3 id="typical-edge-cases">Typical Edge Cases<a class="headerlink" href="#typical-edge-cases" title="Permanent link">&para;</a></h3>
+<p><strong>1. NULL pointer:</strong>
+<strong>What is NULL?</strong> <code>NULL</code> is a special value meaning "this pointer doesn't point to anything." Trying to use a NULL pointer crashes your program.</p>
+<pre><code class="language-c">// Crashes if str is NULL:
+int i = 0;
+while (str[i] != '\0')  // Dereferences NULL! (tries to access invalid memory)
+
+// Check first (if required by exercise):
+if (str == NULL)
+    return (0);
+int i = 0;
+while (str[i] != '\0')
+</code></pre>
+<p><strong>2. Empty string:</strong></p>
+<pre><code class="language-c">char    *str = &quot;&quot;;  // Contains only '\0'
+// Length is 0, but str[0] == '\0' is true
+</code></pre>
+<p><strong>3. Missing terminator:</strong></p>
+<pre><code class="language-c">char    arr[5] = {'H', 'e', 'l', 'l', 'o'};  // No '\0'!
+// This is NOT a valid string - undefined behavior when reading
+
+// Fix:
+char    arr[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+// Or:
+char    arr[] = &quot;Hello&quot;;  // Automatically includes '\0'
+</code></pre>
+<hr />
+<h2 id="h-pointers-expanded-step-by-step">H. Pointers (EXPANDED - Step by Step)<a class="headerlink" href="#h-pointers-expanded-step-by-step" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>This is where many beginners get stuck. Read this carefully!</strong></p>
+</blockquote>
+<h3 id="what-is-a-pointer-the-address-analogy">What is a Pointer? (The Address Analogy)<a class="headerlink" href="#what-is-a-pointer-the-address-analogy" title="Permanent link">&para;</a></h3>
+<p><strong>What is a pointer?</strong> A <strong>pointer</strong> is a variable that stores a memory address instead of a value. Think of it as a piece of paper with a street address written on it, rather than the house itself.</p>
+<p><strong>What is memory?</strong> <strong>Memory</strong> (RAM) is where your computer stores data while your program runs. Think of memory like a street with numbered houses (addresses). A variable is a house with a value inside. A pointer is a piece of paper with the house address written on it.</p>
+<pre><code>Memory (the street):
+┌─────────┬─────────┬─────────┬─────────┐
+│ Address │  1000   │  1004   │  1008   │
+│ Value   │   42    │   ???   │   ???   │
+│ Name    │  value  │         │   ptr   │
+└─────────┴─────────┴─────────┴─────────┘
+</code></pre>
+<p><strong>In code:</strong></p>
+<pre><code class="language-c">int value = 42;      // House at address 1000 contains 42
+int *ptr = &amp;value;   // ptr is a paper saying &quot;address 1000&quot;
+</code></pre>
+<h3 id="the-two-operators-and">The Two Operators: <code>&amp;</code> and <code>*</code><a class="headerlink" href="#the-two-operators-and" title="Permanent link">&para;</a></h3>
+<p><strong>What is an operator?</strong> An <strong>operator</strong> is a symbol that performs an operation (like <code>+</code> for addition).</p>
+<p><strong><code>&amp;</code> (address-of operator):</strong> "Give me the address of this variable"<br />
+<strong>What does <code>&amp;</code> do?</strong> The <code>&amp;</code> operator gets the memory address where a variable is stored.</p>
+<pre><code class="language-c">int x = 5;
+int *ptr = &amp;x;  // ptr now holds the address of x
+</code></pre>
+<p><strong><code>*</code> (dereference operator):</strong> "Go to this address and get/change the value"<br />
+<strong>What does <code>*</code> do?</strong> The <code>*</code> operator (when used with a pointer) follows the address to get or modify the value stored there. This is called <strong>dereferencing</strong>.</p>
+<pre><code class="language-c">int x = 5;
+int *ptr = &amp;x;  // ptr points to x
+*ptr = 10;      // Go to address in ptr, change value to 10
+// Now x is 10!
+</code></pre>
+<h3 id="visual-step-by-step-example">Visual Step-by-Step Example<a class="headerlink" href="#visual-step-by-step-example" title="Permanent link">&para;</a></h3>
+<pre><code class="language-c">int value = 42;
+int *ptr = &amp;value;
+*ptr = 100;
+</code></pre>
+<p><strong>Step 1:</strong> <code>int value = 42;</code></p>
+<pre><code>Memory:
+┌─────────┐
+│ Address: 1000
+│ Value:   42
+│ Name:    value
+└─────────┘
+</code></pre>
+<p><strong>Step 2:</strong> <code>int *ptr = &amp;value;</code></p>
+<pre><code>Memory:
+┌─────────┐     ┌─────────┐
+│ Address: 1000 │ Address: 2000
+│ Value:   42   │ Value:   1000  ← address of value!
+│ Name:    value│ Name:    ptr
+└─────────┘     └─────────┘
+                 (points to)
+</code></pre>
+<p><strong>Step 3:</strong> <code>*ptr = 100;</code></p>
+<pre><code>Memory:
+┌─────────┐     ┌─────────┐
+│ Address: 1000 │ Address: 2000
+│ Value:   100  │ Value:   1000
+│ Name:    value│ Name:    ptr
+└─────────┘     └─────────┘
+   ↑ Changed!   (still points here)
+</code></pre>
+<h3 id="why-do-we-need-pointers">Why Do We Need Pointers?<a class="headerlink" href="#why-do-we-need-pointers" title="Permanent link">&para;</a></h3>
+<p><strong>Why use pointers?</strong> Pointers let functions modify variables that are passed to them. Without pointers, functions only get copies of values.</p>
+<p><strong>Problem:</strong> Functions can't modify variables passed by value.</p>
+<pre><code class="language-c">void    ft_change(int n)
+{
+    n = 100;  // Only changes local copy
+}
+
+int main(void)
+{
+    int x = 5;
+    ft_change(x);
+    // x is still 5! ❌
+}
+</code></pre>
+<p><strong>Solution:</strong> Pass the address (pointer), so function can modify original.</p>
+<pre><code class="language-c">void    ft_change(int *n)  // Receives address
+{
+    *n = 100;  // Go to address, change value
+}
+
+int main(void)
+{
+    int x = 5;
+    ft_change(&amp;x);  // Pass address of x
+    // x is now 100! ✅
+}
+</code></pre>
+<h3 id="first-pointer-exercise-pattern-from-the-repository">First Pointer Exercise Pattern (from the repository)<a class="headerlink" href="#first-pointer-exercise-pattern-from-the-repository" title="Permanent link">&para;</a></h3>
+<p><strong><code>ft_ft</code> - Simplest pointer example:</strong></p>
+<pre><code class="language-c">void    ft_ft(int *nbr)  // Receives pointer (address)
+{
+    *nbr = 42;  // Dereference: go to address, set value to 42
+}
+</code></pre>
+<p><strong>How to call it:</strong></p>
+<pre><code class="language-c">int number = 0;
+ft_ft(&amp;number);  // Pass address of number
+// number is now 42!
+</code></pre>
+<p><strong>What happens:</strong>
+1. <code>&amp;number</code> gives address of <code>number</code>
+2. Function receives that address in <code>nbr</code>
+3. <code>*nbr = 42</code> goes to that address and changes value
+4. Original <code>number</code> is now 42</p>
+<h3 id="swap-pattern-classic-pointer-example">Swap Pattern (Classic Pointer Example)<a class="headerlink" href="#swap-pattern-classic-pointer-example" title="Permanent link">&para;</a></h3>
+<p><strong>From the repository:</strong> <code>c_01/ex02/ft_swap.c</code></p>
+<pre><code class="language-c">void    ft_swap(int *a, int *b)
+{
+    int temp;
+
+    temp = *a;   // Save value at address a
+    *a = *b;     // Copy value from b to a
+    *b = temp;   // Copy saved value to b
+}
+</code></pre>
+<p><strong>Visual explanation:</strong></p>
+<pre><code>Before swap:
+a → [5]  (address 1000)
+b → [10] (address 1004)
+
+After temp = *a:
+temp = 5
+a → [5]
+b → [10]
+
+After *a = *b:
+temp = 5
+a → [10]  ← changed!
+b → [10]
+
+After *b = temp:
+temp = 5
+a → [10]
+b → [5]   ← changed!
+</code></pre>
+<h3 id="pointers-and-strings">Pointers and Strings<a class="headerlink" href="#pointers-and-strings" title="Permanent link">&para;</a></h3>
+<p><strong>Important:</strong> In C, strings are pointers to characters!</p>
+<pre><code class="language-c">char    *str = &quot;Hello&quot;;
+// str is a pointer to the first character 'H'
+</code></pre>
+<p><strong>Why this works:</strong>
+- <code>str[0]</code> is same as <code>*str</code> (first character)
+- <code>str[1]</code> is same as <code>*(str + 1)</code> (next character)
+- String functions receive <code>char *</code> (pointer to first char)</p>
+<p><strong>Example from repo:</strong></p>
+<pre><code class="language-c">void    ft_putstr(char *str)  // Receives pointer to first char
+{
+    int i;
+
+    i = 0;
+    while (str[i] != '\0')  // Can use indexing with pointer
+    {
+        write(1, &amp;str[i], 1);
+        i++;
+    }
+}
+</code></pre>
+<h3 id="common-pointer-mistakes-beginners-make-these">Common Pointer Mistakes (Beginners Make These!)<a class="headerlink" href="#common-pointer-mistakes-beginners-make-these" title="Permanent link">&para;</a></h3>
+<p><strong>1. Forgetting <code>&amp;</code> when passing address:</strong></p>
+<pre><code class="language-c">void    ft_change(int *n)
+{
+    *n = 100;
+}
+
+int main(void)
+{
+    int x = 5;
+    ft_change(x);  // ❌ Wrong! Passes value, not address
+    // Compiler error or crash
+
+    ft_change(&amp;x);  // ✅ Correct! Passes address
+}
+</code></pre>
+<p><strong>2. Using <code>*</code> when you shouldn't:</strong></p>
+<pre><code class="language-c">int x = 5;
+int *ptr = &amp;x;
+
+int y = *ptr;   // ✅ Correct: get value
+int y = ptr;    // ❌ Wrong: assigns address (wrong type)
+</code></pre>
+<p><strong>3. Dereferencing NULL or uninitialized pointer:</strong></p>
+<pre><code class="language-c">int *ptr;        // ❌ Not initialized!
+*ptr = 5;        // Crash! ptr points to random memory
+
+int *ptr = NULL;  // ❌ Points to nothing
+*ptr = 5;        // Crash! Can't write to NULL
+
+// ✅ Fix:
+int *ptr;
+int value = 5;
+ptr = &amp;value;    // Now ptr points to valid memory
+*ptr = 10;       // Safe!
+</code></pre>
+<p><strong>4. Confusing <code>*</code> in declaration vs usage:</strong></p>
+<pre><code class="language-c">int *ptr;        // Declaration: * means &quot;pointer to int&quot;
+*ptr = 5;        // Usage: * means &quot;dereference (get value)&quot;
+</code></pre>
+<p><strong>5. Wrong type when passing:</strong></p>
+<pre><code class="language-c">void    ft_swap(int *a, int *b)  // Expects pointers
+{
+    // ...
+}
+
+int main(void)
+{
+    int x = 5, y = 10;
+    ft_swap(x, y);     // ❌ Wrong: passing values
+    ft_swap(&amp;x, &amp;y);   // ✅ Correct: passing addresses
+}
+</code></pre>
+<h3 id="pointer-declaration-patterns">Pointer Declaration Patterns<a class="headerlink" href="#pointer-declaration-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>Single pointer:</strong></p>
+<pre><code class="language-c">int *ptr;        // Pointer to int
+char    *str;       // Pointer to char (string)
+</code></pre>
+<p><strong>Multiple pointers (each needs *):</strong></p>
+<pre><code class="language-c">int *a, *b, *c;  // Three pointers to int
+// NOT: int *a, b, c;  (only a is pointer!)
+</code></pre>
+<p><strong>Pointer to pointer (advanced - seen in <code>ft_ultimate_ft</code>):</strong></p>
+<pre><code class="language-c">int **ptr;       // Pointer to pointer to int
+// Used when you need to modify a pointer itself
+</code></pre>
+<h3 id="quick-reference-pointer-rules">Quick Reference: Pointer Rules<a class="headerlink" href="#quick-reference-pointer-rules" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Syntax</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Declare pointer</td>
+<td><code>int *ptr;</code></td>
+<td><code>ptr</code> is a pointer to int</td>
+</tr>
+<tr>
+<td>Get address</td>
+<td><code>&amp;variable</code></td>
+<td>Address of <code>variable</code></td>
+</tr>
+<tr>
+<td>Get value</td>
+<td><code>*ptr</code></td>
+<td>Value at address in <code>ptr</code></td>
+</tr>
+<tr>
+<td>Change value</td>
+<td><code>*ptr = 5;</code></td>
+<td>Set value at address to 5</td>
+</tr>
+<tr>
+<td>Pass to function</td>
+<td><code>func(&amp;x)</code></td>
+<td>Pass address of <code>x</code></td>
+</tr>
+<tr>
+<td>Receive in function</td>
+<td><code>void func(int *n)</code></td>
+<td>Function receives address</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="i-arrays-pointers-connecting-the-concepts">I. Arrays &amp; Pointers (Connecting the Concepts)<a class="headerlink" href="#i-arrays-pointers-connecting-the-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="arrays-vs-pointers-practical-viewpoint">Arrays vs Pointers (Practical Viewpoint)<a class="headerlink" href="#arrays-vs-pointers-practical-viewpoint" title="Permanent link">&para;</a></h3>
+<p><strong>Arrays:</strong></p>
+<pre><code class="language-c">int arr[5] = {1, 2, 3, 4, 5};
+// arr[0] = 1, arr[1] = 2, etc.
+</code></pre>
+<p><strong>Pointers to arrays:</strong></p>
+<pre><code class="language-c">int arr[5] = {1, 2, 3, 4, 5};
+int *ptr = arr;  // Points to first element
+// ptr[0] = 1, ptr[1] = 2 (same as arr)
+</code></pre>
+<p><strong>For strings:</strong></p>
+<pre><code class="language-c">char    *str = &quot;Hello&quot;;  // str is a pointer
+// str[0] = 'H', str[1] = 'e', etc.
+</code></pre>
+<p><strong>Key insight:</strong> Arrays and pointers work similarly for indexing. <code>arr[i]</code> and <code>ptr[i]</code> both work.</p>
+<h3 id="indexing-patterns-youll-see">Indexing Patterns You'll See<a class="headerlink" href="#indexing-patterns-youll-see" title="Permanent link">&para;</a></h3>
+<p><strong>1. Sequential access:</strong></p>
+<pre><code class="language-c">int i = 0;
+while (i &lt; size)
+{
+    arr[i] = 0;  // Set each element to 0
+    i++;
+}
+</code></pre>
+<p><strong>2. Reverse access:</strong></p>
+<pre><code class="language-c">int i = size - 1;  // Start from last element
+while (i &gt;= 0)
+{
+    arr[i] = 0;
+    i--;
+}
+</code></pre>
+<p><strong>3. Pair swapping (from the repository):</strong></p>
+<pre><code class="language-c">int i = 0;
+while (i &lt; (size / 2))  // Only swap half
+{
+    temp = arr[size - 1 - i];  // Last element
+    arr[size - 1 - i] = arr[i];  // Move first to last
+    arr[i] = temp;  // Move last to first
+    i++;
+}
+</code></pre>
+<hr />
+<h2 id="j-output-debugging">J. Output / Debugging<a class="headerlink" href="#j-output-debugging" title="Permanent link">&para;</a></h2>
+<h3 id="how-output-is-done-in-this-repository">How Output Is Done in This Repository<a class="headerlink" href="#how-output-is-done-in-this-repository" title="Permanent link">&para;</a></h3>
+<p><strong>Evidence:</strong> All output uses <code>write()</code>, never <code>printf()</code>.</p>
+<p><strong><code>write()</code> function:</strong>
+<strong>What is <code>write()</code>?</strong> <code>write()</code> is a function that outputs data. It's the only output function you're allowed to use in 42 exercises (not <code>printf()</code>).</p>
+<pre><code class="language-c">write(fd, buffer, count);
+// fd = file descriptor (1 = stdout/screen, 2 = stderr/error output)
+// buffer = what to write (address of data)
+// count = how many bytes to write
+</code></pre>
+<p><strong>What is stdout?</strong> <strong>Stdout</strong> (standard output) is where your program normally prints - usually the screen/terminal.</p>
+<p><strong>Examples from the repository:</strong></p>
+<pre><code class="language-c">write(1, &amp;c, 1);           // Write 1 character
+write(1, &quot;Hello&quot;, 5);      // Write 5 characters
+write(1, &quot;\n&quot;, 1);         // Write newline
+write(1, &quot;-2147483648&quot;, 11);  // Write 11 characters
+</code></pre>
+<p><strong>Why <code>&amp;c</code> for single char?</strong>
+- <code>write()</code> needs an <strong>address</strong>, not the value
+- <code>&amp;c</code> gives address of <code>c</code>
+- For strings, the name is already an address: <code>"Hello"</code> or <code>str</code></p>
+<h3 id="tiny-debugging-tricks">Tiny Debugging Tricks<a class="headerlink" href="#tiny-debugging-tricks" title="Permanent link">&para;</a></h3>
+<p><strong>1. Print a character:</strong></p>
+<pre><code class="language-c">char    debug = 'X';
+write(1, &amp;debug, 1);  // See if code reaches here
+</code></pre>
+<p><strong>2. Print a number (simple):</strong></p>
+<pre><code class="language-c">int n = 42;
+char    c = n + '0';  // Only works for 0-9!
+write(1, &amp;c, 1);
+</code></pre>
+<p><strong>3. Print a string marker:</strong></p>
+<pre><code class="language-c">write(1, &quot;DEBUG: reached here\n&quot;, 20);
+</code></pre>
+<hr />
+<h2 id="k-common-patterns-index">K. Common Patterns Index<a class="headerlink" href="#k-common-patterns-index" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>The core of this sheet.</strong> Quick lookup for reusable code patterns.</p>
+</blockquote>
+<hr />
+<h3 id="pattern-iterate-string">Pattern: Iterate String<a class="headerlink" href="#pattern-iterate-string" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Process each character in a string.</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">int i;
+
+i = 0;
+while (str[i] != '\0')
+{
+    // Process str[i]
+    i++;
+}
+</code></pre>
+<p><strong>Pitfalls:</strong>
+- Forgetting <code>i++</code> → infinite loop
+- Not handling NULL pointer
+- Accessing <code>str[i]</code> after loop without checking</p>
+<p><strong>Example:</strong> <code>c_01/ex05/ft_putstr.c:16-24</code></p>
+<hr />
+<h3 id="pattern-copy-string">Pattern: Copy String<a class="headerlink" href="#pattern-copy-string" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Copy one string to another.</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">int i;
+
+i = 0;
+while (src[i] != '\0')
+{
+    dest[i] = src[i];
+    i++;
+}
+dest[i] = '\0';  // CRITICAL: Add terminator!
+</code></pre>
+<p><strong>Pitfalls:</strong>
+- Forgetting NUL terminator
+- No size check (buffer overflow risk)
+- Not handling NULL pointers</p>
+<p><strong>Example:</strong> <code>c_02/ex00/ft_strcpy.c:19-26</code></p>
+<hr />
+<h3 id="pattern-string-length">Pattern: String Length<a class="headerlink" href="#pattern-string-length" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Count characters in string.</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">int i;
+
+i = 0;
+while (str[i] != '\0')
+    i++;
+return (i);  // Not i+1! (NUL not counted)
+</code></pre>
+<p><strong>Pitfalls:</strong>
+- Returning <code>i + 1</code> (wrong - NUL not included in length)
+- Not handling NULL</p>
+<p><strong>Example:</strong> <code>c_01/ex06/ft_strlen.c:14-24</code></p>
+<hr />
+<h3 id="pattern-compare-strings">Pattern: Compare Strings<a class="headerlink" href="#pattern-compare-strings" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Check if two strings are equal or compare lexicographically.</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">while (*s1 == *s2 &amp;&amp; *s1 != '\0')
+{
+    s1++;
+    s2++;
+}
+return (*s1 - *s2);  // Negative if s1 &lt; s2, 0 if equal, positive if s1 &gt; s2
+</code></pre>
+<p><strong>Pitfalls:</strong>
+- Returning <code>s2 - s1</code> (wrong order)
+- Not handling NULL
+- Signed char overflow (rare)</p>
+<p><strong>Example:</strong> <code>c_03/ex00/ft_strcmp.c:15-23</code></p>
+<hr />
+<h3 id="pattern-swap-using-pointers">Pattern: Swap (Using Pointers)<a class="headerlink" href="#pattern-swap-using-pointers" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Exchange values of two variables.</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">int temp;
+
+temp = *a;
+*a = *b;
+*b = temp;
+</code></pre>
+<p><strong>Pitfalls:</strong>
+- Forgetting temp variable
+- Wrong order of assignments
+- Forgetting <code>&amp;</code> when calling</p>
+<p><strong>Example:</strong> <code>c_01/ex02/ft_swap.c:14-21</code></p>
+<hr />
+<h3 id="pattern-reverse-array">Pattern: Reverse Array<a class="headerlink" href="#pattern-reverse-array" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Reverse elements in array in-place.</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">int i;
+int temp;
+
+i = 0;
+while (i &lt; (size / 2))  // Only swap half
+{
+    temp = arr[size - 1 - i];
+    arr[size - 1 - i] = arr[i];
+    arr[i] = temp;
+    i++;
+}
+</code></pre>
+<p><strong>Pitfalls:</strong>
+- Using <code>i &lt;= size / 2</code> (double-swaps middle if odd)
+- Wrong index calculation</p>
+<p><strong>Example:</strong> <code>c_01/ex07/ft_rev_int_tab.c:14-27</code></p>
+<hr />
+<h3 id="pattern-character-classification">Pattern: Character Classification<a class="headerlink" href="#pattern-character-classification" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Check if character is letter, digit, etc. (can't use <code>isalpha()</code>).</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">// Check if lowercase
+if (c &gt;= 'a' &amp;&amp; c &lt;= 'z')
+    return (1);
+
+// Check if uppercase
+if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z')
+    return (1);
+
+// Check if digit
+if (c &gt;= '0' &amp;&amp; c &lt;= '9')
+    return (1);
+</code></pre>
+<p><strong>Pitfalls:</strong>
+- Using magic numbers instead of characters (<code>97</code> vs <code>'a'</code>)
+- Wrong ranges (off-by-one)</p>
+<p><strong>Example:</strong> <code>c_02/ex02/ft_str_is_alpha.c:22</code></p>
+<hr />
+<h3 id="pattern-case-conversion">Pattern: Case Conversion<a class="headerlink" href="#pattern-case-conversion" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Convert letter to uppercase or lowercase.</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">// To uppercase
+if (c &gt;= 'a' &amp;&amp; c &lt;= 'z')
+    c = c - 32;  // Or: c = c - ('a' - 'A')
+
+// To lowercase
+if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z')
+    c = c + 32;  // Or: c = c + ('a' - 'A')
+</code></pre>
+<p><strong>Why:</strong> ASCII difference between 'a' and 'A' is 32.</p>
+<p><strong>Pitfalls:</strong>
+- Modifying non-letters
+- Wrong direction (+ vs -)</p>
+<p><strong>Example:</strong> <code>c_02/ex07/ft_strupcase.c:19-27</code></p>
+<hr />
+<h3 id="pattern-print-number">Pattern: Print Number<a class="headerlink" href="#pattern-print-number" title="Permanent link">&para;</a></h3>
+<p><strong>When to use:</strong> Print integer using only <code>write()</code> (no <code>printf()</code>).</p>
+<p><strong>Template:</strong></p>
+<pre><code class="language-c">void    ft_putchar(char c)
+{
+    write(1, &amp;c, 1);
+}
+
+void    ft_putnbr(int nb)
+{
+    if (nb == -2147483648)  // INT_MIN special case
+    {
+        write(1, &quot;-2147483648&quot;, 11);
+        return;
+    }
+    if (nb &lt; 0)
+    {
+        write(1, &quot;-&quot;, 1);
+        nb = -nb;
+    }
+    if (nb &gt;= 10)
+    {
+        ft_putnbr(nb / 10);  // Recursive: print higher digits
+        ft_putchar((nb % 10) + '0');  // Print last digit
+    }
+    else
+        ft_putchar(nb + '0');
+}
+</code></pre>
+<p><strong>Pitfalls:</strong>
+- Forgetting INT_MIN case → overflow
+- Not converting digit to char (<code>+ '0'</code>)</p>
+<p><strong>Example:</strong> <code>c_00/ex07/ft_putnbr.c:19-40</code></p>
+<hr />
+<h2 id="quick-reference-ascii-values">Quick Reference: ASCII Values<a class="headerlink" href="#quick-reference-ascii-values" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Decimal</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'0'</code></td>
+<td>48</td>
+<td>Digits start</td>
+</tr>
+<tr>
+<td><code>'9'</code></td>
+<td>57</td>
+<td>Digits end</td>
+</tr>
+<tr>
+<td><code>'A'</code></td>
+<td>65</td>
+<td>Uppercase start</td>
+</tr>
+<tr>
+<td><code>'Z'</code></td>
+<td>90</td>
+<td>Uppercase end</td>
+</tr>
+<tr>
+<td><code>'a'</code></td>
+<td>97</td>
+<td>Lowercase start</td>
+</tr>
+<tr>
+<td><code>'z'</code></td>
+<td>122</td>
+<td>Lowercase end</td>
+</tr>
+<tr>
+<td><code>' '</code></td>
+<td>32</td>
+<td>Space (first printable)</td>
+</tr>
+<tr>
+<td><code>'\0'</code></td>
+<td>0</td>
+<td>String terminator</td>
+</tr>
+<tr>
+<td><code>'\n'</code></td>
+<td>10</td>
+<td>Newline</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Case conversion:</strong> <code>'a' - 'A' = 32</code> (add 32 for lowercase, subtract for uppercase)</p>
+<hr />
+<h2 id="quick-reference-common-mistakes-checklist">Quick Reference: Common Mistakes Checklist<a class="headerlink" href="#quick-reference-common-mistakes-checklist" title="Permanent link">&para;</a></h2>
+<p>Before submitting, check:</p>
+<ul>
+<li>[ ] All strings null-terminated? (<code>dest[i] = '\0'</code>)</li>
+<li>[ ] Loop variables incremented? (<code>i++</code> inside loop)</li>
+<li>[ ] Array bounds checked? (<code>i &lt; size</code> not <code>i &lt;= size</code>)</li>
+<li>[ ] Pointers: Used <code>&amp;</code> when passing address? (<code>func(&amp;x)</code> not <code>func(x)</code>)</li>
+<li>[ ] Pointers: Used <code>*</code> when dereferencing? (<code>*ptr = 5</code> not <code>ptr = 5</code>)</li>
+<li>[ ] NULL pointers handled? (if required)</li>
+<li>[ ] Division by zero checked? (if dividing)</li>
+<li>[ ] INT_MIN handled? (if negating integers)</li>
+<li>[ ] Return statement present? (if function returns value)</li>
+<li>[ ] Correct return type? (<code>int</code> vs <code>char*</code> vs <code>void</code>)</li>
+<li>[ ] Includes correct? (<code>&lt;unistd.h&gt;</code> for <code>write()</code>)</li>
+<li>[ ] Header format correct? (42 style)</li>
+</ul>
+<hr />
+<h2 id="l-next-steps-header-files-advanced">L. Next Steps: Header Files (Advanced)<a class="headerlink" href="#l-next-steps-header-files-advanced" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Skip this section for your first 2 weeks. Come back later!</strong></p>
+</blockquote>
+<h3 id="what-goes-in-a-h-file">What Goes in a <code>.h</code> File<a class="headerlink" href="#what-goes-in-a-h-file" title="Permanent link">&para;</a></h3>
+<p><strong>What is a <code>.h</code> file?</strong> A <strong>header file</strong> (<code>.h</code> file) contains function declarations (not the actual code, just the signatures). It's used when you have multiple files that need to share functions.</p>
+<p><strong>Evidence from repository:</strong> No <code>.h</code> files found in early exercises.<br />
+<strong>When you'll need it:</strong> Later projects (libft, etc.) when you have multiple files.</p>
+<p><strong>Typical structure:</strong></p>
+<pre><code class="language-c">#ifndef FT_EXAMPLE_H
+# define FT_EXAMPLE_H
+
+void    ft_function_name(int param);
+
+#endif
+</code></pre>
+<p><strong>Purpose:</strong>
+- Declare function prototypes (so other files know what functions exist)
+- Share constants, types, etc.
+- Include in <code>.c</code> files: <code>#include "ft_example.h"</code></p>
+<p><strong>What is a function prototype?</strong> A <strong>function prototype</strong> is a declaration that tells the compiler a function exists, what it returns, and what parameters it takes - without showing the actual code.</p>
+<p><strong>Note:</strong> For now, focus on single-file exercises. Headers come later!</p>
+<hr />
+<p><strong>Last tip:</strong> When stuck, look for similar patterns in the repository. Most exercises reuse the same building blocks!</p>
+<hr />
+<h2 id="need-help-check-the-glossary">📖 Need Help? Check the Glossary<a class="headerlink" href="#need-help-check-the-glossary" title="Permanent link">&para;</a></h2>
+<p>If you encounter any term you don't understand, scroll back to the <strong>Quick Lexicon (Glossary)</strong> section at the beginning of this document. All technical terms are defined there, and many are also explained inline when first introduced.</p>
+<p><strong>Remember:</strong> Learning to program takes practice. Don't be discouraged if concepts don't click immediately. Keep coding, keep referring to this guide, and you'll get it!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
